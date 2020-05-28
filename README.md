@@ -9,31 +9,39 @@ This library does not use any malloc. Each function takes a buffer.
 
 To parse a complete URL:
 
-    char *input = "http://www.github.com/jezze/liburl";
-    struct liburl_url url;
-    char buffer[4096];
+```c
+char *input = "http://www.github.com/jezze/liburl";
+struct liburl_url url;
+char buffer[4096];
 
-    liburl_parse(&url, buffer, 4096, input, LIBURL_SCHEME);
+liburl_parse(&url, buffer, 4096, input, LIBURL_SCHEME);
+```
 
 To parse only a part of a URL:
 
-    char *input = "/jezze/liburl";
-    struct liburl_url url;
-    char buffer[4096];
+```c
+char *input = "/jezze/liburl";
+struct liburl_url url;
+char buffer[4096];
 
-    liburl_parse(&url, buffer, 4096, input, LIBURL_PATH);
+liburl_parse(&url, buffer, 4096, input, LIBURL_PATH);
+```
 
 After you have parsed the URL you can print it's parts:
 
-    printf("Scheme: %s\n", url.scheme);
-    printf("Host: %s\n", url.host);
+```c
+printf("Scheme: %s\n", url.scheme);
+printf("Host: %s\n", url.host);
+```
 
 You can also write the full url to a buffer:
 
-    char buffer[4096];
+```c
+char buffer[4096];
 
-    liburl_tostring(&url, buffer, 4096);
-    printf("URL: %s\n", buffer);
+liburl_tostring(&url, buffer, 4096);
+printf("URL: %s\n", buffer);
+```
 
 ## Missing features
 
